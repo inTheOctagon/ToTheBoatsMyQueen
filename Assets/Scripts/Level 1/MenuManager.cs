@@ -49,9 +49,9 @@ public class MenuManager : MonoBehaviour
 
             if(!moved)
             {
-                enemy1Object.GetComponent<NavMeshAgent>().Warp(new Vector3(29, 2, 3));
-                enemy2Object.GetComponent<NavMeshAgent>().Warp(new Vector3(29, 2, 0));
-                enemy3Object.GetComponent<NavMeshAgent>().Warp(new Vector3(29, 2, -3));
+                enemy1Object.GetComponent<NavMeshAgent>().Warp(new Vector3(30, 2, 3));
+                enemy2Object.GetComponent<NavMeshAgent>().Warp(new Vector3(30, 2, 0));
+                enemy3Object.GetComponent<NavMeshAgent>().Warp(new Vector3(30, 2, -3));
                 
                 moved = true;
             }
