@@ -1953,7 +1953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171724321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23, y: 0.1, z: 0}
+  m_LocalPosition: {x: -23, y: 0.01, z: 0}
   m_LocalScale: {x: 0.3, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2262,7 +2262,6 @@ GameObject:
   - component: {fileID: 179493267}
   - component: {fileID: 179493266}
   - component: {fileID: 179493265}
-  - component: {fileID: 179493263}
   - component: {fileID: 179493262}
   m_Layer: 0
   m_Name: Enemy
@@ -2287,28 +2286,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &179493263
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179493261}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!23 &179493265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8086,7 +8063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688831939}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.9356, y: 0.1, z: 16}
+  m_LocalPosition: {x: 0.9356, y: 0.01, z: 16}
   m_LocalScale: {x: 0.3, y: 2, z: 3.9014106}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10965,11 +10942,10 @@ GameObject:
   - component: {fileID: 926937932}
   - component: {fileID: 926937931}
   - component: {fileID: 926937930}
-  - component: {fileID: 926937936}
   - component: {fileID: 926937935}
   - component: {fileID: 926937934}
   m_Layer: 0
-  m_Name: Guard #1
+  m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11080,28 +11056,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &926937936
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926937929}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &932835158
 GameObject:
   m_ObjectHideFlags: 0
@@ -11951,7 +11905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969937548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0.1, z: -0.0315}
+  m_LocalPosition: {x: -20, y: 0.01, z: -0.0315}
   m_LocalScale: {x: 0.3, y: 2, z: 3.5056016}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13011,7 +12965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055994333}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0002, y: 0.1, z: -16.0327}
+  m_LocalPosition: {x: -0.0002, y: 0.01, z: -16.0327}
   m_LocalScale: {x: 0.30654, y: 2, z: 3.7087898}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17139,7 +17093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457957672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26, y: 0.1, z: 0}
+  m_LocalPosition: {x: -26, y: 0.01, z: 0}
   m_LocalScale: {x: 0.3, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17331,7 +17285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464001242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0.1, z: -0.0315}
+  m_LocalPosition: {x: 20, y: 0.01, z: -0.0315}
   m_LocalScale: {x: 0.3, y: 2, z: 3.5056016}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19184,7 +19138,6 @@ GameObject:
   - component: {fileID: 1595718898}
   - component: {fileID: 1595718897}
   - component: {fileID: 1595718896}
-  - component: {fileID: 1595718894}
   - component: {fileID: 1595718893}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -19209,28 +19162,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &1595718894
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595718892}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!23 &1595718896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19697,7 +19628,6 @@ GameObject:
   - component: {fileID: 1614399777}
   - component: {fileID: 1614399776}
   - component: {fileID: 1614399775}
-  - component: {fileID: 1614399773}
   - component: {fileID: 1614399772}
   m_Layer: 0
   m_Name: Enemy (2)
@@ -19722,28 +19652,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &1614399773
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614399771}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!23 &1614399775
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22837,7 +22745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893100814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.7322, y: 0.1, z: -0.0315}
+  m_LocalPosition: {x: -28.7322, y: 0.01, z: -0.0315}
   m_LocalScale: {x: 0.24645, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
