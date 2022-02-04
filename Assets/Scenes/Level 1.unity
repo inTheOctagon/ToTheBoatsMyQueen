@@ -3186,16 +3186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b66d1411fc6bb743b230b8086d5b427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1Manager: {fileID: 1607357034}
   playButtonObject: {fileID: 384738005}
-  enemy1Object: {fileID: 179493261}
-  enemy2Object: {fileID: 1595718892}
-  enemy3Object: {fileID: 1614399771}
-  gateCam: {fileID: 1692602860}
-  dollyTargetPos: {x: 30, y: 4.5, z: 0}
-  gateCamSpeed: 3
-  gameCam: {fileID: 946603768}
-  doorR: {fileID: 1941851314}
-  doorL: {fileID: 798306565}
 --- !u!1 &282151104
 GameObject:
   m_ObjectHideFlags: 0
@@ -11770,6 +11762,8 @@ GameObject:
   - component: {fileID: 926937931}
   - component: {fileID: 926937930}
   - component: {fileID: 926937935}
+  - component: {fileID: 926937934}
+  - component: {fileID: 926937936}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -11854,6 +11848,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &926937934
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926937929}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!54 &926937935
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11870,6 +11886,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &926937936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926937929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049b5db6cb9c4c842a94ec350adaf431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932835158
 GameObject:
   m_ObjectHideFlags: 0
@@ -20689,6 +20717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607357035}
+  - component: {fileID: 1607357036}
   m_Layer: 0
   m_Name: Level 1 Manager
   m_TagString: Untagged
@@ -20710,6 +20739,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607357036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607357034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fada4a411e0476e41adbd65d17823cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy1Object: {fileID: 179493261}
+  enemy2Object: {fileID: 1595718892}
+  enemy3Object: {fileID: 1614399771}
+  gateCam: {fileID: 1692602860}
+  dollyTargetPos: {x: 30, y: 4.5, z: 0}
+  dollySpeed: 3
+  gameCam: {fileID: 946603768}
+  doorR: {fileID: 1941851314}
+  doorL: {fileID: 798306565}
 --- !u!1 &1614399771
 GameObject:
   m_ObjectHideFlags: 0
