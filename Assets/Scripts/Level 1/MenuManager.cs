@@ -6,13 +6,15 @@ using Cinemachine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject level1Manager;
+    [SerializeField] GameObject level1SetupManager;
     [SerializeField] GameObject playButtonObject;
 
     public void PlayButton()
     {
-        level1Manager.GetComponent<Level1Manager>().SetupStarter();
+        level1SetupManager.GetComponent<Level1SetupManager>().SetupStarter();
         playButtonObject.SetActive(false);
     }
+
+    
     
 }
