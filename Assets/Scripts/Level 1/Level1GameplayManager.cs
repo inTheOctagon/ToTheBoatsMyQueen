@@ -11,6 +11,8 @@ public class Level1GameplayManager : MonoBehaviour
     [Header("Actor Variables")]
     [SerializeField] GameObject guardObject;
     [SerializeField] LayerMask guardMask;
+    [SerializeField] LayerMask boardMask;
+    private bool moveBool;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -23,11 +25,22 @@ public class Level1GameplayManager : MonoBehaviour
             {
                 Debug.Log("the guard");
                 guardObject.GetComponent<BoardGuard>().SetTheIndicator();
+                moveBool = true;
+            }
+            else if(Physics.Raycast(ray, out hit, 60, boardMask) 
+               && moveBool 
+               && hit.collider.gameObject.transform.position.z == guardObject.transform.position.z  
+               && guardObject.transform.position.x + 10 >= hit.collider.gameObject.transform.position.x
+               && guardObject.transform.position.x < hit.collider.gameObject.transform.position.x
+               )
+            {
+                guardObject.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, guardObject.transform.position.y, guardObject.transform.position.z);
             }
             else
             {
                 Debug.Log("no the guard");
                 guardObject.GetComponent<BoardGuard>().ResetTheIndicator();
+                moveBool = false;
             }
 
 
