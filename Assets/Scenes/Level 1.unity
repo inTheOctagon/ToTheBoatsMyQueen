@@ -11760,10 +11760,9 @@ GameObject:
   - component: {fileID: 926937933}
   - component: {fileID: 926937932}
   - component: {fileID: 926937931}
-  - component: {fileID: 926937930}
-  - component: {fileID: 926937935}
   - component: {fileID: 926937934}
   - component: {fileID: 926937936}
+  - component: {fileID: 926937930}
   m_Layer: 6
   m_Name: Guard
   m_TagString: Guard
@@ -11872,22 +11871,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &926937935
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926937929}
-  serializedVersion: 2
-  m_Mass: 80
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &926937936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15939,8 +15922,8 @@ MonoBehaviour:
   enemy2Object: {fileID: 1595718892}
   enemy3Object: {fileID: 1614399771}
   gateCam: {fileID: 1692602860}
-  dollyTargetPos: {x: 27, y: 4.5, z: 0}
-  dollySpeed: 4
+  dollyTargetPos: {x: 26, y: 4.5, z: 0}
+  dollySpeed: 4.5
   gameCam: {fileID: 946603768}
   doorRObject: {fileID: 1941851314}
   doorLObject: {fileID: 798306565}

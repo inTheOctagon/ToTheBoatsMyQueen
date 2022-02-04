@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Level1GameplayManager : MonoBehaviour
 {
@@ -32,9 +33,10 @@ public class Level1GameplayManager : MonoBehaviour
                && hit.collider.gameObject.transform.position.z == guardObject.transform.position.z  
                && guardObject.transform.position.x + 10 >= hit.collider.gameObject.transform.position.x
                && guardObject.transform.position.x < hit.collider.gameObject.transform.position.x
-               )
+                   )
             {
-                guardObject.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, guardObject.transform.position.y, guardObject.transform.position.z);
+                guardObject.GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.collider.gameObject.transform.position.x, guardObject.transform.position.y, guardObject.transform.position.z));
+                guardObject.GetComponent<BoardGuard>().ResetTheIndicator();
             }
             else
             {
