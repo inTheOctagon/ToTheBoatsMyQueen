@@ -7,15 +7,21 @@ public class BoardGuard : MonoBehaviour
     [SerializeField] GameObject longActionAreaIndicator;
     [SerializeField] GameObject shortActionAreaIndicator;
 
-    public void SetTheIndicator()
+    public void SetTheLongIndicator()
     {
         longActionAreaIndicator.SetActive(true);
-        //shortActionAreaIndicator.SetActive(true);
     }
    
+    public void SetTheShortIndicator()
+    {
+        shortActionAreaIndicator.SetActive(true);
+    }
+
     public void ResetTheIndicator()
     {
         longActionAreaIndicator.SetActive(false);
+        shortActionAreaIndicator.SetActive(false);
+
     }
 
 }
