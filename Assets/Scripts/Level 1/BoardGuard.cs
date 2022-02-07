@@ -32,28 +32,29 @@ public class BoardGuard : MonoBehaviour
     public void MoveWithMechanism()
     {
         Ray guardRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit guardHit;
+        
         RaycastHit boardHit;
 
 
 
-        if (Physics.Raycast(guardRay, out guardHit, 60, guardMask))
+        if (Physics.Raycast(guardRay, 60, guardMask))
         {
             Debug.Log("the guard");
-            if(!visualized) VisualizeIndicators();
+            if (!visualized) VisualizeIndicators();
+            moveBool = true;
 
         }
 
         else if (
            Physics.Raycast(guardRay, out boardHit, 60, boardMask)
            && moveBool
-           && boardHit.collider.gameObject.transform.position.x >= -14 && boardHit.collider.gameObject.transform.position.x <= 14
-           && boardHit.collider.gameObject.transform.position.z >= -10 && boardHit.collider.gameObject.transform.position.z <= 10
-           && Vector3.Distance(gameObject.transform.position, boardHit.collider.gameObject.transform.position) == 4
+           //&& boardHit.collider.gameObject.transform.position.x >= -14 && boardHit.collider.gameObject.transform.position.x <= 14
+           //&& boardHit.collider.gameObject.transform.position.z >= -10 && boardHit.collider.gameObject.transform.position.z <= 10
+           && Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) <= 6
                 )
         {
 
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(new Vector3(boardHit.collider.gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHit.collider.gameObject.transform.position);
             ResetTheIndicator();
 
             moveBool = false;
@@ -71,7 +72,7 @@ public class BoardGuard : MonoBehaviour
 
     private void VisualizeIndicators()
     {
-        moveBool = true;
+        
         visualized = true;
         Vector3 guardPosition = transform.position;
  
@@ -102,7 +103,7 @@ public class BoardGuard : MonoBehaviour
                 
                 if(i == 2 && gameObject.transform.position.z <= 2)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + indicatorUpwardOffset, Quaternion.identity);
+                    Instantiate(longActionAreaIndicator, guardPosition + indicatorUpwardOffset, Quaternion.Euler(0, 90, 0));
                     Debug.Log(2);
                 }
                 
@@ -172,15 +173,15 @@ public class BoardGuard : MonoBehaviour
 
     public void ResetTheIndicator()
     {
-        int activeIndicatorCount = 0;
+        
         GameObject[] allIndicators = GameObject.FindGameObjectsWithTag("Indicator");
 
         if (allIndicators != null)
         {
-            activeIndicatorCount++;
+            
             foreach (GameObject indicator in allIndicators)
             {
-                DestroyImmediate(indicator.gameObject);
+                Destroy(indicator.gameObject);
             }
         }
 
