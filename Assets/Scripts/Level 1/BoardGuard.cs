@@ -19,6 +19,8 @@ public class BoardGuard : MonoBehaviour
     [SerializeField] GameObject longActionAreaIndicator;
     [SerializeField] GameObject shortActionAreaIndicator;
 
+    [SerializeField] Level1GameplayManager gameplayManager;
+
 
 
 
@@ -58,6 +60,7 @@ public class BoardGuard : MonoBehaviour
 
             Debug.Log(Vector3.Distance(transform.position, boardHit.collider.transform.position));
             gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHit.collider.gameObject.transform.position);
+            gameplayManager.friendlyTurn = false;
             ResetTheIndicator();
 
             moveBool = false;

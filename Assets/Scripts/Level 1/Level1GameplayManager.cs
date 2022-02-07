@@ -7,6 +7,10 @@ public class Level1GameplayManager : MonoBehaviour
 {
     [Header("BOARD VARIABLES")]
 
+    [Header("Gameplay Variables")]
+
+    public bool friendlyTurn;
+    public bool enemyTurn;
 
 
     [Header("Actor Variables")]
@@ -21,19 +25,29 @@ public class Level1GameplayManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.DrawRay(guardObject.transform.position, Vector3.right * 10, Color.green);
-        Debug.DrawRay(guardObject.transform.position, -Vector3.right * 10, Color.green);
-        Debug.DrawRay(guardObject.transform.position, Vector3.forward * 10, Color.green);
-        Debug.DrawRay(guardObject.transform.position, -Vector3.forward * 10, Color.green);
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(friendlyTurn)
         {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
 
-            guardScript.MoveWithMechanism();
-           
+                guardScript.MoveWithMechanism();
+
+
+
+            }
+
+            
+        }
+        else if(enemyTurn)
+        {
 
         }
 
+       
+
     }
+
+
+
 }
 

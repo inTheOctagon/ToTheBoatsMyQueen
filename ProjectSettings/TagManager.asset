@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Guard
   - Indicator
+  - Enemy
   layers:
   - Default
   - TransparentFX
