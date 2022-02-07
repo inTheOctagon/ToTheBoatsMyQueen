@@ -102,7 +102,7 @@ public class Level1SetupManager : MonoBehaviour
                 moved = true;
                 setup = true;
                 tutorialFirstStep = true;
-                if (tutorialFirstStep) Debug.Log("ye this works");
+                
             }
 
             else if (!doorOpened)

@@ -13,6 +13,7 @@ public class BoardGuard : MonoBehaviour
     [SerializeField] LayerMask enemyMask;
 
     private bool moveBool = false;
+    private bool longerTimer = false;
 
     private bool visualized = false;
 
@@ -41,7 +42,7 @@ public class BoardGuard : MonoBehaviour
 
         if (Physics.Raycast(guardRay, 60, guardMask))
         {
-            Debug.Log("the guard");
+            
             if (!visualized) VisualizeIndicators();
             moveBool = true;
 
@@ -50,8 +51,6 @@ public class BoardGuard : MonoBehaviour
         else if (
            Physics.Raycast(guardRay, out boardHit, 60, boardMask)
            && moveBool
-           //&& boardHit.collider.gameObject.transform.position.x >= -14 && boardHit.collider.gameObject.transform.position.x <= 14
-           //&& boardHit.collider.gameObject.transform.position.z >= -10 && boardHit.collider.gameObject.transform.position.z <= 10
            && (Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) < 5 
            || (Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) < 8.5f && Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) > 6.5f))
 
@@ -60,7 +59,10 @@ public class BoardGuard : MonoBehaviour
 
             Debug.Log(Vector3.Distance(transform.position, boardHit.collider.transform.position));
             gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHit.collider.gameObject.transform.position);
-            gameplayManager.friendlyTurn = false;
+            //switch timer is adjusted according to target position
+            if (Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) > 6.5f) longerTimer = true;
+            //coroutine that switches turn bools
+            StartCoroutine("roundTransitionTimer");
             ResetTheIndicator();
 
             moveBool = false;
@@ -68,7 +70,7 @@ public class BoardGuard : MonoBehaviour
 
         else
         {
-            Debug.Log("no the guard");
+           
             
             ResetTheIndicator();
 
@@ -248,5 +250,25 @@ public class BoardGuard : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator roundTransitionTimer()
+    {
+        gameplayManager.friendlyTurn = false;
+
+        if (longerTimer)
+        {
+            Debug.Log("long");
+
+            yield return new WaitForSeconds(3);
+        }
+        else
+        {
+            Debug.Log("short");
+            yield return new WaitForSeconds(2);
+        }
+
+
+        gameplayManager.enemyTurn = true;
     }
 }
