@@ -9,9 +9,17 @@ public class Level1SetupManager : MonoBehaviour
     [Header("SETUP VARIABLES")]
     
     public bool setupOne = true;
+    public bool setupTwo = true;
     public float waveOneEnemyNumber = 3;
 
-    [Header("Actor Variables")]
+    [SerializeField] GameObject doorRObject;
+    [SerializeField] GameObject doorLObject;
+    private bool doorOpened = false;
+
+    [SerializeField] GameObject boardGuard;
+    [SerializeField] BoardGuard boardScript;
+
+    [Header("Wave One Variables")]
     [SerializeField] GameObject enemyOneObject;
     [SerializeField] GameObject enemyTwoObject;
     [SerializeField] GameObject enemyThreeObject;
@@ -20,26 +28,12 @@ public class Level1SetupManager : MonoBehaviour
     private NavMeshAgent enemyTwoNavMeshComp;
     private NavMeshAgent enemyThreeNavMeshComp;
 
-    private BoardEnemy enemyScript;
-
     [SerializeField] Vector3 enemyOneBoardPos;
     [SerializeField] Vector3 enemyTwoBoardPos;
     [SerializeField] Vector3 enemyThreeBoardPos;
 
     private bool moved = false;
 
-    [Header("Capturing Variables")]
-    [SerializeField] GameObject gateCam;
-    [SerializeField] Vector3 dollyTargetPos = new Vector3(30, 4.5f, 0);
-    [SerializeField] float dollySpeed;
-    [SerializeField] GameObject gameCam;
-    
-    [Header("Door Variables")]
-    [SerializeField] GameObject doorRObject;
-    [SerializeField] GameObject doorLObject;
-    private bool doorOpened = false;
-
-    [Header("Tutorial Variables")]
     [SerializeField] GameObject tutorialPanelOne;
     [SerializeField] GameObject tutorialPanelTwo;
 
@@ -47,18 +41,62 @@ public class Level1SetupManager : MonoBehaviour
     private bool tutorialSecondStep;
     private bool tutorialThirdStep;
 
+    [Header("Wave Two Variables")]
+    [SerializeField] GameObject enemyFourObject;
+    [SerializeField] GameObject enemyFiveObject;
+    [SerializeField] GameObject enemySixObject;
+    [SerializeField] GameObject enemySevenObject;
+    [SerializeField] GameObject enemyEightObject;
+
+    private NavMeshAgent enemyFourNavMeshComp;
+    private NavMeshAgent enemyFiveNavMeshComp;
+    private NavMeshAgent enemySixNavMeshComp;
+    private NavMeshAgent enemySevenNavMeshComp;
+    private NavMeshAgent enemyEightNavMeshComp;
+
+    [SerializeField] Vector3 enemyFourBoardPos;
+    [SerializeField] Vector3 enemyFiveBoardPos;
+    [SerializeField] Vector3 enemySixBoardPos;
+    [SerializeField] Vector3 enemySevenBoardPos;
+    [SerializeField] Vector3 enemyEightBoardPos;
+
+    private bool tutorialFourthStep;
+    private bool tutorialFifthStep;
+
+
+    [Header("Capturing Variables")]
+    [SerializeField] GameObject gateCam;
+    [SerializeField] Vector3 dollyTargetPos = new Vector3(30, 4.5f, 0);
+    [SerializeField] float dollySpeed;
+    [SerializeField] GameObject gameCam;
+    
     [SerializeField] Level1GameplayManager gameplayManager; 
 
 
     private void Start()
     {
+        boardScript = boardGuard.GetComponent<BoardGuard>();
+
         enemyOneBoardPos = new Vector3(6, 2, 6);
         enemyTwoBoardPos = new Vector3(10, 2, 2);
         enemyThreeBoardPos = new Vector3(14, 2, -2);
 
+        enemyFourBoardPos = new Vector3(14, 2.1f, -2);
+        enemyFiveBoardPos = new Vector3(2, 2.1f, 2);
+        enemySixBoardPos = new Vector3(6, 2.1f, -2);
+        enemySevenBoardPos = new Vector3(10, 2.5f, 2);
+        enemyEightBoardPos = new Vector3(10, 2.1f, -6);
+
         enemyOneNavMeshComp = enemyOneObject.GetComponent<NavMeshAgent>();
         enemyTwoNavMeshComp = enemyTwoObject.GetComponent<NavMeshAgent>();
         enemyThreeNavMeshComp = enemyThreeObject.GetComponent<NavMeshAgent>();
+
+        enemyFourNavMeshComp = enemyFourObject.GetComponent<NavMeshAgent>();
+        enemyFiveNavMeshComp = enemyFiveObject.GetComponent<NavMeshAgent>();
+        enemySixNavMeshComp = enemySixObject.GetComponent<NavMeshAgent>();
+        enemySevenNavMeshComp = enemySevenObject.GetComponent<NavMeshAgent>();
+        enemyEightNavMeshComp = enemyEightObject.GetComponent<NavMeshAgent>();
+
     }
 
     public void SetupStarter()
@@ -101,11 +139,11 @@ public class Level1SetupManager : MonoBehaviour
                 enemyThreeNavMeshComp.SetDestination(enemyThreeBoardPos);
 
                 moved = true;
-                
+
                 tutorialFirstStep = true;
 
                 doorOpened = true;
-                
+
             }
 
             else if (!doorOpened)
@@ -144,6 +182,29 @@ public class Level1SetupManager : MonoBehaviour
             else return;
 
         }
+        else if (!setupTwo)
+        {
+            Debug.Log(enemyFiveBoardPos);
+            Debug.Log(enemyFiveObject.transform.position);
+
+            if (enemyFiveObject.transform.position.x == enemyFiveBoardPos.x && tutorialFourthStep)
+            {
+                
+                //panel çýkar 
+                tutorialFourthStep = false;
+                tutorialFifthStep = true;
+                
+            }
+            else if(Input.anyKeyDown && tutorialFifthStep)
+            {
+                //paneli kapat ve
+                gameplayManager.enemyTurn = true;
+                setupTwo = true;
+                gameplayManager.enemyTurn = true;
+            }
+        }
+        
+        else return;
         
         
     }
@@ -153,7 +214,26 @@ public class Level1SetupManager : MonoBehaviour
         waveOneEnemyNumber--;
         if (waveOneEnemyNumber == 0)
         {
-            //setup two start
+            gameplayManager.friendlyTurn = false;
+
+            enemyFourObject.SetActive(true);
+            enemyFiveObject.SetActive(true);
+            enemySixObject.SetActive(true);
+            enemySevenObject.SetActive(true);
+            enemyEightObject.SetActive(true);
+
+            boardScript.SetDestination(new Vector3(-14, 2, 2));
+
+            enemyFourNavMeshComp.SetDestination(enemyFourBoardPos);
+            enemyFiveNavMeshComp.SetDestination(enemyFiveBoardPos);
+            enemySixNavMeshComp.SetDestination(enemySixBoardPos);
+            enemySevenNavMeshComp.SetDestination(enemySevenBoardPos);
+            enemyEightNavMeshComp.SetDestination(enemyEightBoardPos);
+
+            setupTwo = false;
+            tutorialFourthStep = true;
+
+            Debug.Log("wave 2 baby");
         }
 
     }
@@ -171,4 +251,6 @@ public class Level1SetupManager : MonoBehaviour
         tutorialPanelTwo.SetActive(true);
         tutorialThirdStep = true;
     }
+
+    
 }

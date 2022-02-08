@@ -311,7 +311,7 @@ public class BoardGuard : MonoBehaviour
         if (Physics.Raycast(transform.position,raycastDir, out enemyHit, 4))
         {
             enemyHit.collider.gameObject.GetComponent<BoardEnemy>().TakeDamage(1);
-            setupManager.CheckForSetupTwo();
+            
             
         }
 
@@ -348,7 +348,9 @@ public class BoardGuard : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        gameplayManager.friendlyTurn = true;
+        setupManager.CheckForSetupTwo();
+
+        if(setupManager.waveOneEnemyNumber != 0) gameplayManager.friendlyTurn = true;
 
 
 

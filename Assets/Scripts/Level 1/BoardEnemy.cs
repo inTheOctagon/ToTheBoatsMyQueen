@@ -30,4 +30,5 @@ public class BoardEnemy : MonoBehaviour
         }
     }
 
+    //check trigger with navmesh collider for loss con
 }

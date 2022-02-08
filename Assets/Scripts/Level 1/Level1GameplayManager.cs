@@ -18,9 +18,7 @@ public class Level1GameplayManager : MonoBehaviour
     [SerializeField] GameObject enemyTwoObject;
     [SerializeField] GameObject enemyThreeObject;
 
-    private BoardEnemy enemyOneScript;
-    private BoardEnemy enemyTwoScript;
-    private BoardEnemy enemyThreeScript;
+    
 
     private BoardGuard guardScript;
 
@@ -28,9 +26,7 @@ public class Level1GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        enemyOneScript = enemyOneObject.GetComponent<BoardEnemy>();
-        enemyTwoScript = enemyTwoObject.GetComponent<BoardEnemy>();
-        enemyThreeScript = enemyThreeObject.GetComponent<BoardEnemy>();
+        
 
         guardScript = guardObject.GetComponent<BoardGuard>();
     }
@@ -51,13 +47,17 @@ public class Level1GameplayManager : MonoBehaviour
         }
         else if(enemyTurn)
         {
-            enemyOneScript.MoveEnemy();
-            enemyTwoScript.MoveEnemy();
-            enemyThreeScript.MoveEnemy();
+            GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            if(Enemies != null)
+            {
+                foreach (GameObject enemy in Enemies)
+
+                    enemy.GetComponent<BoardEnemy>().MoveEnemy();
+            }
+            
 
             enemyTurn = false;
-
-            
 
             StartCoroutine("roundTransitionTimer");
         }
@@ -70,13 +70,10 @@ public class Level1GameplayManager : MonoBehaviour
     IEnumerator roundTransitionTimer()
     {
         yield return new WaitForSeconds(2);
-        
-        friendlyTurn = true;
 
-        if (enemyOneObject.transform.position.x == -14 || enemyTwoObject.transform.position.x == -14 || enemyThreeObject.transform.position.x == -14)
-        {
-            Debug.Log("you lost");
-        }
+       
+
+            friendlyTurn = true;
 
 
     }
