@@ -8,7 +8,8 @@ public class Level1SetupManager : MonoBehaviour
 {
     [Header("SETUP VARIABLES")]
     
-    public bool setup = true;
+    public bool setupOne = true;
+    public float waveOneEnemyNumber = 3;
 
     [Header("Actor Variables")]
     [SerializeField] GameObject enemyOneObject;
@@ -77,7 +78,7 @@ public class Level1SetupManager : MonoBehaviour
     private void Update()
     {
 
-        if (!setup)
+        if (!setupOne)
         {
             if (gateCam.transform.position == dollyTargetPos && !moved)
             {
@@ -100,8 +101,10 @@ public class Level1SetupManager : MonoBehaviour
                 enemyThreeNavMeshComp.SetDestination(enemyThreeBoardPos);
 
                 moved = true;
-                setup = true;
+                
                 tutorialFirstStep = true;
+
+                doorOpened = true;
                 
             }
 
@@ -113,39 +116,53 @@ public class Level1SetupManager : MonoBehaviour
                 gateCam.transform.position = Vector3.MoveTowards(gateCam.transform.position, dollyTargetPos, dollySpeed * Time.deltaTime);
             }
 
-        }
-        else if (enemyOneObject.transform.position.x == enemyOneBoardPos.x && enemyTwoObject.transform.position.x == enemyTwoBoardPos.x && enemyThreeObject.transform.position.x == enemyThreeBoardPos.x && tutorialFirstStep)
-        {
-            //they move by 1 to reach the red line to kill the queen
-            tutorialPanelOne.SetActive(true);
-            tutorialFirstStep = false;
-            tutorialSecondStep = true;
+            else if (enemyOneObject.transform.position.x == enemyOneBoardPos.x && enemyTwoObject.transform.position.x == enemyTwoBoardPos.x && enemyThreeObject.transform.position.x == enemyThreeBoardPos.x && tutorialFirstStep)
+            {
+                //they move by 1 to reach the red line to kill the queen
+                tutorialPanelOne.SetActive(true);
+                tutorialFirstStep = false;
+                tutorialSecondStep = true;
+
+            }
+            else if (Input.anyKeyDown && tutorialSecondStep)
+            {
+                tutorialPanelOne.SetActive(false);
+                tutorialSecondStep = false;
+                enemyOneObject.GetComponent<BoardEnemy>().MoveEnemy();
+                enemyTwoObject.GetComponent<BoardEnemy>().MoveEnemy();
+                enemyThreeObject.GetComponent<BoardEnemy>().MoveEnemy();
+                StartCoroutine("tutorialSecondStepTimer");
+
+            }
+            else if (Input.anyKeyDown && tutorialThirdStep)
+            {
+                tutorialThirdStep = false;
+                gameplayManager.friendlyTurn = true;
+                tutorialPanelTwo.SetActive(false);
+                setupOne = true;
+            }
+            else return;
 
         }
-        else if (Input.anyKeyDown && tutorialSecondStep)
-        {
-            tutorialPanelOne.SetActive(false);
-            tutorialSecondStep = false;
-            enemyOneObject.GetComponent<BoardEnemy>().MoveEnemy();
-            enemyTwoObject.GetComponent<BoardEnemy>().MoveEnemy();
-            enemyThreeObject.GetComponent<BoardEnemy>().MoveEnemy();
-            StartCoroutine("tutorialSecondStepTimer");
-
-        }
-        else if (Input.anyKeyDown && tutorialThirdStep)
-        {
-            tutorialThirdStep = false;
-            gameplayManager.friendlyTurn = true;
-            tutorialPanelTwo.SetActive(false);
-        }
-        else return;
+        
         
     }
+
+    public void CheckForSetupTwo()
+    {
+        waveOneEnemyNumber--;
+        if (waveOneEnemyNumber == 0)
+        {
+            //setup two start
+        }
+
+    }
+
 
     IEnumerator doorTimer()
     {
         yield return new WaitForSeconds(3);
-        setup = false;
+        setupOne = false;
     }
 
     IEnumerator tutorialSecondStepTimer()

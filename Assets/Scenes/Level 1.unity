@@ -2616,6 +2616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deda17553420f5f4e8eeec163ecdf7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthValue: 1
 --- !u!195 &179493263
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16384,7 +16385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fada4a411e0476e41adbd65d17823cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setup: 1
+  setupOne: 1
   enemyOneObject: {fileID: 179493261}
   enemyTwoObject: {fileID: 1595718892}
   enemyThreeObject: {fileID: 1614399771}
@@ -20741,6 +20742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deda17553420f5f4e8eeec163ecdf7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthValue: 1
 --- !u!195 &1595718894
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21314,6 +21316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deda17553420f5f4e8eeec163ecdf7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthValue: 1
 --- !u!195 &1614399773
 NavMeshAgent:
   m_ObjectHideFlags: 0

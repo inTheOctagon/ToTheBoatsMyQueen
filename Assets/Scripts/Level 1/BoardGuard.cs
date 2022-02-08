@@ -23,6 +23,7 @@ public class BoardGuard : MonoBehaviour
     [SerializeField] GameObject attackActionAreaIndicator;
 
     [SerializeField] Level1GameplayManager gameplayManager;
+    [SerializeField] Level1SetupManager setupManager;
 
     Vector3[] indicatorRayDirections = new[] { Vector3.right, -Vector3.right, Vector3.forward, -Vector3.forward };
 
@@ -54,7 +55,10 @@ public class BoardGuard : MonoBehaviour
         {
 
             Debug.Log(Vector3.Distance(transform.position, boardHit.collider.transform.position));
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHit.collider.gameObject.transform.position);
+
+            var roundedTargetPos = new Vector3(Mathf.Round(boardHit.collider.gameObject.transform.position.x), Mathf.Round(boardHit.collider.gameObject.transform.position.y), Mathf.Round(boardHit.collider.gameObject.transform.position.z));
+
+            SetDestination(roundedTargetPos);
             
             
 
@@ -113,7 +117,7 @@ public class BoardGuard : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            //long indicators
+            //long indicators for enemies
             if (!Physics.Raycast(transform.position, indicatorRayDirections[i], out enemyHit, 10, enemyMask))
             {
 
@@ -144,7 +148,7 @@ public class BoardGuard : MonoBehaviour
 
 
             }
-            //short indicators
+            //shorts indicators for enemies
             if (Physics.Raycast(transform.position, indicatorRayDirections[i], out enemyHit, 10, enemyMask))
             {
 
@@ -175,7 +179,7 @@ public class BoardGuard : MonoBehaviour
 
             }
 
-            //short indicator for edges
+            //short indicators for edges
             if (!Physics.Raycast(transform.position, indicatorRayDirections[i], out enemyHit, 4, enemyMask))
             {
 
@@ -210,7 +214,7 @@ public class BoardGuard : MonoBehaviour
             }
 
 
-            //attack indicators
+            //attack indicators for enemies
             if (Physics.Raycast(transform.position, indicatorRayDirections[i], out enemyHit, 4, enemyMask))
             {
 
@@ -300,33 +304,41 @@ public class BoardGuard : MonoBehaviour
         Debug.Log("attack anim");
         yield return new WaitForSeconds(0.5f);
 
-        Debug.Log(boardHitPos.x);
-        Debug.Log(transform.position.x);
+        RaycastHit enemyHit;
+        
+        Vector3 raycastDir = boardHitPos - transform.position;
+
+        if (Physics.Raycast(transform.position,raycastDir, out enemyHit, 4))
+        {
+            enemyHit.collider.gameObject.GetComponent<BoardEnemy>().TakeDamage(1);
+            setupManager.CheckForSetupTwo();
+            
+        }
 
         var transitionalOffset = 1.5f;
         //saðdaysa üstten
         if (boardHitPos.x > transform.position.x)
         {
             SetDestination(boardHitPos + new Vector3(0,0,transitionalOffset));
-            Debug.Log("sað");
+            
         }
         //soldaysa alttan
         else if (boardHitPos.x < transform.position.x && Mathf.Round(boardHitPos.z) == Mathf.Round(transform.position.z))
         {
             SetDestination(boardHitPos + new Vector3(0, 0, -transitionalOffset));
-            Debug.Log("sol");
+            
         }
         //üstteyse soldan
         else if (boardHitPos.z > transform.position.z && Mathf.Round(boardHitPos.x) == Mathf.Round(transform.position.x))
         {
             SetDestination(boardHitPos + new Vector3(transitionalOffset, 0, 0));
-            Debug.Log("üst");
+            
         }
         //alttaysa saðdan
         else if (boardHitPos.z < transform.position.z)
         {
             SetDestination(boardHitPos + new Vector3(-transitionalOffset, 0, 0));
-            Debug.Log("alt");
+            
         }
         yield return new WaitForSeconds(1.3f);
 
