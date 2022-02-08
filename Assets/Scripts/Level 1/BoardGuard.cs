@@ -266,6 +266,11 @@ public class BoardGuard : MonoBehaviour
 
     }
 
+    public void SetDestination(Vector3 pos)
+    {
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(pos);
+    }
+
     IEnumerator SwitchStates(float secs)
     {
 
@@ -282,7 +287,10 @@ public class BoardGuard : MonoBehaviour
     {
         gameplayManager.friendlyTurn = false;
 
-        var boardHitPos = boardHit.collider.transform.position;
+        var boardHitPos = (boardHit.collider.transform.position);
+        var transformedBoardHitPos = transform.TransformPoint(boardHit.collider.transform.position);
+
+        Debug.Log(boardHitPos);
 
         ResetTheIndicator();
 
@@ -292,34 +300,39 @@ public class BoardGuard : MonoBehaviour
         Debug.Log("attack anim");
         yield return new WaitForSeconds(0.5f);
 
+        Debug.Log(boardHitPos.x);
+        Debug.Log(transform.position.x);
+
         var transitionalOffset = 1.5f;
         //saðdaysa üstten
-        if (boardHitPos.x > transform.position.x && (transform.position.z == boardHitPos.z))
+        if (boardHitPos.x > transform.position.x)
         {
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(0,0,transitionalOffset));
+            SetDestination(boardHitPos + new Vector3(0,0,transitionalOffset));
             Debug.Log("sað");
         }
         //soldaysa alttan
-        else if (boardHitPos.x < transform.position.x && (transform.position.z == boardHitPos.z))
+        else if (boardHitPos.x < transform.position.x && Mathf.Round(boardHitPos.z) == Mathf.Round(transform.position.z))
         {
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(0, 0, -transitionalOffset));
+            SetDestination(boardHitPos + new Vector3(0, 0, -transitionalOffset));
             Debug.Log("sol");
         }
         //üstteyse soldan
-        else if (boardHitPos.z > transform.position.z && (transform.position.x == boardHitPos.x))
+        else if (boardHitPos.z > transform.position.z && Mathf.Round(boardHitPos.x) == Mathf.Round(transform.position.x))
         {
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(transitionalOffset, 0, 0));
+            SetDestination(boardHitPos + new Vector3(transitionalOffset, 0, 0));
             Debug.Log("üst");
         }
         //alttaysa saðdan
-        else if (boardHitPos.z < transform.position.z && (transform.position.x == boardHitPos.x))
+        else if (boardHitPos.z < transform.position.z)
         {
-            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(-transitionalOffset, 0, 0));
+            SetDestination(boardHitPos + new Vector3(-transitionalOffset, 0, 0));
             Debug.Log("alt");
         }
         yield return new WaitForSeconds(1.3f);
 
-        gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos);
+        boardHitPos = new Vector3(Mathf.Round(boardHitPos.x), Mathf.Round(boardHitPos.y), Mathf.Round(boardHitPos.z));
+
+        SetDestination(boardHitPos);
 
         yield return new WaitForSeconds(1);
 
