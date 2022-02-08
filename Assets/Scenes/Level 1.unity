@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 43909363}
   - component: {fileID: 43909362}
   - component: {fileID: 43909361}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 57107464}
   - component: {fileID: 57107463}
   - component: {fileID: 57107462}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1435,7 +1435,7 @@ GameObject:
   - component: {fileID: 66147619}
   - component: {fileID: 66147618}
   - component: {fileID: 66147617}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2495,7 +2495,7 @@ GameObject:
   - component: {fileID: 179385603}
   - component: {fileID: 179385602}
   - component: {fileID: 179385601}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3483,7 +3483,7 @@ GameObject:
   - component: {fileID: 282151107}
   - component: {fileID: 282151106}
   - component: {fileID: 282151105}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3775,7 +3775,7 @@ GameObject:
   - component: {fileID: 298041166}
   - component: {fileID: 298041165}
   - component: {fileID: 298041164}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4203,7 +4203,7 @@ GameObject:
   - component: {fileID: 321005218}
   - component: {fileID: 321005217}
   - component: {fileID: 321005216}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 334877329}
   - component: {fileID: 334877328}
   - component: {fileID: 334877327}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: 375573850}
   - component: {fileID: 375573849}
   - component: {fileID: 375573848}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5596,7 +5596,7 @@ GameObject:
   - component: {fileID: 425019571}
   - component: {fileID: 425019570}
   - component: {fileID: 425019569}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5696,7 +5696,7 @@ GameObject:
   - component: {fileID: 430934422}
   - component: {fileID: 430934421}
   - component: {fileID: 430934420}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5796,7 +5796,7 @@ GameObject:
   - component: {fileID: 439076321}
   - component: {fileID: 439076320}
   - component: {fileID: 439076319}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6088,7 +6088,7 @@ GameObject:
   - component: {fileID: 454653187}
   - component: {fileID: 454653186}
   - component: {fileID: 454653185}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6668,7 +6668,7 @@ GameObject:
   - component: {fileID: 495163221}
   - component: {fileID: 495163220}
   - component: {fileID: 495163219}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7056,7 +7056,7 @@ GameObject:
   - component: {fileID: 515170250}
   - component: {fileID: 515170249}
   - component: {fileID: 515170248}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7348,7 +7348,7 @@ GameObject:
   - component: {fileID: 574632641}
   - component: {fileID: 574632640}
   - component: {fileID: 574632639}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7640,7 +7640,7 @@ GameObject:
   - component: {fileID: 604615200}
   - component: {fileID: 604615199}
   - component: {fileID: 604615198}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7836,7 +7836,7 @@ GameObject:
   - component: {fileID: 618228289}
   - component: {fileID: 618228288}
   - component: {fileID: 618228287}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8992,7 +8992,7 @@ GameObject:
   - component: {fileID: 692225079}
   - component: {fileID: 692225078}
   - component: {fileID: 692225077}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9953,7 +9953,7 @@ GameObject:
   - component: {fileID: 739385704}
   - component: {fileID: 739385703}
   - component: {fileID: 739385702}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10245,7 +10245,7 @@ GameObject:
   - component: {fileID: 785623627}
   - component: {fileID: 785623626}
   - component: {fileID: 785623625}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11172,7 +11172,7 @@ GameObject:
   - component: {fileID: 855502222}
   - component: {fileID: 855502221}
   - component: {fileID: 855502220}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11848,7 +11848,7 @@ GameObject:
   - component: {fileID: 920588199}
   - component: {fileID: 920588198}
   - component: {fileID: 920588197}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12175,6 +12175,7 @@ MonoBehaviour:
     m_Bits: 128
   longActionAreaIndicator: {fileID: 1374670921522745966, guid: 5ec8c2d003c470945937feb1aafcd42a, type: 3}
   shortActionAreaIndicator: {fileID: 4789023690834329000, guid: c2016adc1faecf445b59a837a749adc6, type: 3}
+  attackActionAreaIndicator: {fileID: 1374670921522745966, guid: cfa74782c05008a43ac073f3f7e51fa9, type: 3}
   gameplayManager: {fileID: 1607357036}
 --- !u!1 &932835158
 GameObject:
@@ -12380,7 +12381,7 @@ GameObject:
   - component: {fileID: 940693201}
   - component: {fileID: 940693200}
   - component: {fileID: 940693199}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13337,7 +13338,7 @@ GameObject:
   - component: {fileID: 1003578026}
   - component: {fileID: 1003578025}
   - component: {fileID: 1003578024}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14205,7 +14206,7 @@ GameObject:
   - component: {fileID: 1067609802}
   - component: {fileID: 1067609801}
   - component: {fileID: 1067609800}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14477,7 +14478,7 @@ GameObject:
   - component: {fileID: 1077773359}
   - component: {fileID: 1077773358}
   - component: {fileID: 1077773357}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16422,7 +16423,7 @@ GameObject:
   - component: {fileID: 1250001959}
   - component: {fileID: 1250001958}
   - component: {fileID: 1250001957}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16618,7 +16619,7 @@ GameObject:
   - component: {fileID: 1262854781}
   - component: {fileID: 1262854780}
   - component: {fileID: 1262854779}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17198,7 +17199,7 @@ GameObject:
   - component: {fileID: 1344426032}
   - component: {fileID: 1344426031}
   - component: {fileID: 1344426030}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17490,7 +17491,7 @@ GameObject:
   - component: {fileID: 1360887509}
   - component: {fileID: 1360887508}
   - component: {fileID: 1360887507}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17590,7 +17591,7 @@ GameObject:
   - component: {fileID: 1361098031}
   - component: {fileID: 1361098030}
   - component: {fileID: 1361098029}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18074,7 +18075,7 @@ GameObject:
   - component: {fileID: 1418751875}
   - component: {fileID: 1418751874}
   - component: {fileID: 1418751873}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18366,7 +18367,7 @@ GameObject:
   - component: {fileID: 1433742693}
   - component: {fileID: 1433742692}
   - component: {fileID: 1433742691}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19810,7 +19811,7 @@ GameObject:
   - component: {fileID: 1542600535}
   - component: {fileID: 1542600534}
   - component: {fileID: 1542600533}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20006,7 +20007,7 @@ GameObject:
   - component: {fileID: 1561335232}
   - component: {fileID: 1561335231}
   - component: {fileID: 1561335230}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20520,7 +20521,7 @@ GameObject:
   - component: {fileID: 1589014067}
   - component: {fileID: 1589014066}
   - component: {fileID: 1589014065}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20752,7 +20753,7 @@ GameObject:
   - component: {fileID: 1597457096}
   - component: {fileID: 1597457095}
   - component: {fileID: 1597457094}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20852,7 +20853,7 @@ GameObject:
   - component: {fileID: 1600454801}
   - component: {fileID: 1600454800}
   - component: {fileID: 1600454799}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21178,6 +21179,9 @@ MonoBehaviour:
   friendlyTurn: 0
   enemyTurn: 0
   guardObject: {fileID: 926937929}
+  enemyOneObject: {fileID: 179493261}
+  enemyTwoObject: {fileID: 1595718892}
+  enemyThreeObject: {fileID: 1614399771}
 --- !u!1 &1614399771
 GameObject:
   m_ObjectHideFlags: 0
@@ -21514,7 +21518,7 @@ GameObject:
   - component: {fileID: 1643978052}
   - component: {fileID: 1643978051}
   - component: {fileID: 1643978050}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22333,8 +22337,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692602860}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 40, y: 4.5, z: -0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 40, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2022419527}
@@ -22641,7 +22645,7 @@ GameObject:
   - component: {fileID: 1759604334}
   - component: {fileID: 1759604333}
   - component: {fileID: 1759604332}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23317,7 +23321,7 @@ GameObject:
   - component: {fileID: 1782933414}
   - component: {fileID: 1782933413}
   - component: {fileID: 1782933412}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23745,7 +23749,7 @@ GameObject:
   - component: {fileID: 1818176396}
   - component: {fileID: 1818176395}
   - component: {fileID: 1818176394}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23941,7 +23945,7 @@ GameObject:
   - component: {fileID: 1867593520}
   - component: {fileID: 1867593519}
   - component: {fileID: 1867593518}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24521,7 +24525,7 @@ GameObject:
   - component: {fileID: 1896738049}
   - component: {fileID: 1896738048}
   - component: {fileID: 1896738047}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25197,7 +25201,7 @@ GameObject:
   - component: {fileID: 1955014440}
   - component: {fileID: 1955014439}
   - component: {fileID: 1955014438}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26361,7 +26365,7 @@ GameObject:
   - component: {fileID: 2074364647}
   - component: {fileID: 2074364646}
   - component: {fileID: 2074364645}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26845,7 +26849,7 @@ GameObject:
   - component: {fileID: 2128008345}
   - component: {fileID: 2128008344}
   - component: {fileID: 2128008343}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Board Piece (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

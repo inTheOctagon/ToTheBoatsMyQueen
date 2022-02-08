@@ -19,6 +19,7 @@ public class BoardGuard : MonoBehaviour
 
     [SerializeField] GameObject longActionAreaIndicator;
     [SerializeField] GameObject shortActionAreaIndicator;
+    [SerializeField] GameObject attackActionAreaIndicator;
 
     [SerializeField] Level1GameplayManager gameplayManager;
 
@@ -112,19 +113,19 @@ public class BoardGuard : MonoBehaviour
 
                 if (i == 1 && gameObject.transform.position.x >= -6)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorBackwardOffset, Quaternion.identity);
+                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorBackwardOffset, Quaternion.Euler(0, 180, 0));
 
                 }
 
                 if (i == 2 && gameObject.transform.position.z <= 2)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorUpwardOffset, Quaternion.Euler(0, 90, 0));
+                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorUpwardOffset, Quaternion.Euler(0, 270, 0));
 
                 }
 
                 if (i == 3 && gameObject.transform.position.z >= -2)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorDownwardOffset, Quaternion.Euler(0, 270, 0));
+                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorDownwardOffset, Quaternion.Euler(0, 90, 0));
 
                 }
 
@@ -143,19 +144,19 @@ public class BoardGuard : MonoBehaviour
 
                 if (i == 1 && (Vector3.Distance(transform.position, enemyHit.collider.gameObject.transform.position) > 4))
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorBackwardOffset, Quaternion.identity);
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorBackwardOffset, Quaternion.Euler(0, 180, 0));
 
                 }
 
                 if (i == 2 && (Vector3.Distance(transform.position, enemyHit.collider.gameObject.transform.position) > 4))
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorUpwardOffset, Quaternion.Euler(0, 90, 0));
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorUpwardOffset, Quaternion.Euler(0, 270, 0));
 
                 }
 
                 if (i == 3 && (Vector3.Distance(transform.position, enemyHit.collider.gameObject.transform.position) > 4))
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorDownwardOffset, Quaternion.Euler(0, 270, 0));
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorDownwardOffset, Quaternion.Euler(0, 90, 0));
 
                 }
 
@@ -174,19 +175,19 @@ public class BoardGuard : MonoBehaviour
 
                 if (i == 1 && transform.position.x == -10)
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorBackwardOffset, Quaternion.identity);
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorBackwardOffset, Quaternion.Euler(0, 180, 0));
 
                 }
 
                 if (i == 2 && transform.position.z == 6)
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorUpwardOffset, Quaternion.Euler(0, 90, 0));
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorUpwardOffset, Quaternion.Euler(0, 270, 0));
 
                 }
 
                 if (i == 3 && transform.position.z == -6)
                 {
-                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorDownwardOffset, Quaternion.Euler(0, 270, 0));
+                    Instantiate(shortActionAreaIndicator, guardPosition + shortIndicatorDownwardOffset, Quaternion.Euler(0, 90, 0));
 
                 }
 
@@ -202,26 +203,26 @@ public class BoardGuard : MonoBehaviour
 
                 if (i == 0 && gameObject.transform.position.x != -10)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorForwardOffset, Quaternion.identity);
+                    Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorForwardOffset, Quaternion.identity);
 
 
                 }
 
                 if (i == 1 && gameObject.transform.position.x != 10)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorBackwardOffset, Quaternion.identity);
+                    Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorBackwardOffset, Quaternion.Euler(0, 180, 0));
 
                 }
 
                 if (i == 2 && gameObject.transform.position.x != 6)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorUpwardOffset, Quaternion.Euler(0, 90, 0));
+                    Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorUpwardOffset, Quaternion.Euler(0, 270, 0));
 
                 }
 
                 if (i == 3 && gameObject.transform.position.x != -6)
                 {
-                    Instantiate(longActionAreaIndicator, guardPosition + longIndicatorDownwardOffset, Quaternion.Euler(0, 270, 0));
+                    Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorDownwardOffset, Quaternion.Euler(0, 90, 0));
 
 
 
