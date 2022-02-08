@@ -6,11 +6,12 @@ using UnityEngine.AI;
 public class BoardGuard : MonoBehaviour
 {
 
-
-
     [SerializeField] LayerMask boardMask;
     [SerializeField] LayerMask guardMask;
     [SerializeField] LayerMask enemyMask;
+    [SerializeField] LayerMask attackMask;
+
+    private RaycastHit boardHit;
 
     private bool moveBool = false;
     private bool longerTimer = false;
@@ -23,10 +24,6 @@ public class BoardGuard : MonoBehaviour
 
     [SerializeField] Level1GameplayManager gameplayManager;
 
-
-
-
-
     Vector3[] indicatorRayDirections = new[] { Vector3.right, -Vector3.right, Vector3.forward, -Vector3.forward };
 
 
@@ -37,9 +34,7 @@ public class BoardGuard : MonoBehaviour
     {
         Ray guardRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit boardHit;
-
-
+        
 
         if (Physics.Raycast(guardRay, 60, guardMask))
         {
@@ -60,13 +55,31 @@ public class BoardGuard : MonoBehaviour
 
             Debug.Log(Vector3.Distance(transform.position, boardHit.collider.transform.position));
             gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHit.collider.gameObject.transform.position);
+            
+            
+
+            
             //switch timer is adjusted according to target position
             if (Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) > 6.5f) longerTimer = true;
-            //coroutine that switches turn bools
-            StartCoroutine("roundTransitionTimer");
+           
+            if(longerTimer) StartCoroutine("SwitchStates", 3);
+            else StartCoroutine("SwitchStates", 2);
+            
             ResetTheIndicator();
 
             moveBool = false;
+        }
+
+        else if(
+                Physics.Raycast(guardRay, out boardHit, 60, attackMask)
+           && moveBool
+           && ((Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) < 8.5f && Vector3.Distance(boardHit.collider.gameObject.transform.position, gameObject.transform.position) > 6.5f))
+               )
+        {
+            
+            
+                StartCoroutine("AttackTheEnemy");
+            
         }
 
         else
@@ -253,23 +266,67 @@ public class BoardGuard : MonoBehaviour
 
     }
 
-    IEnumerator roundTransitionTimer()
+    IEnumerator SwitchStates(float secs)
+    {
+
+        gameplayManager.friendlyTurn = false;
+       
+        yield return new WaitForSeconds(secs);
+
+        gameplayManager.enemyTurn = true;
+
+
+    }
+
+    IEnumerator AttackTheEnemy()
     {
         gameplayManager.friendlyTurn = false;
 
-        if (longerTimer)
+        var boardHitPos = boardHit.collider.transform.position;
+
+        ResetTheIndicator();
+
+        transform.LookAt(boardHitPos);
+        
+        yield return new WaitForSeconds(0.5f);       
+        Debug.Log("attack anim");
+        yield return new WaitForSeconds(0.5f);
+
+        var transitionalOffset = 1.5f;
+        //saðdaysa üstten
+        if (boardHitPos.x > transform.position.x && (transform.position.z == boardHitPos.z))
         {
-            Debug.Log("long");
-
-            yield return new WaitForSeconds(3);
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(0,0,transitionalOffset));
+            Debug.Log("sað");
         }
-        else
+        //soldaysa alttan
+        else if (boardHitPos.x < transform.position.x && (transform.position.z == boardHitPos.z))
         {
-            Debug.Log("short");
-            yield return new WaitForSeconds(2);
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(0, 0, -transitionalOffset));
+            Debug.Log("sol");
         }
+        //üstteyse soldan
+        else if (boardHitPos.z > transform.position.z && (transform.position.x == boardHitPos.x))
+        {
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(transitionalOffset, 0, 0));
+            Debug.Log("üst");
+        }
+        //alttaysa saðdan
+        else if (boardHitPos.z < transform.position.z && (transform.position.x == boardHitPos.x))
+        {
+            gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos + new Vector3(-transitionalOffset, 0, 0));
+            Debug.Log("alt");
+        }
+        yield return new WaitForSeconds(1.3f);
+
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(boardHitPos);
+
+        yield return new WaitForSeconds(1);
+
+        gameplayManager.friendlyTurn = true;
 
 
-        gameplayManager.enemyTurn = true;
+
     }
+
 }

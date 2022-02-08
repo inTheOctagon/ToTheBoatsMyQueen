@@ -12,7 +12,6 @@ public class Level1GameplayManager : MonoBehaviour
     public bool friendlyTurn;
     public bool enemyTurn;
 
-
     [Header("Actor Variables")]
     [SerializeField] GameObject guardObject;
     [SerializeField] GameObject enemyOneObject;
