@@ -201,14 +201,14 @@ public class BoardGuard : MonoBehaviour
             if (Physics.Raycast(transform.position, indicatorRayDirections[i], out enemyHit, 4, enemyMask))
             {
 
-                if (i == 0 && gameObject.transform.position.x != -10)
+                if (i == 0 && gameObject.transform.position.x != 10)
                 {
                     Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorForwardOffset, Quaternion.identity);
 
 
                 }
 
-                if (i == 1 && gameObject.transform.position.x != 10)
+                if (i == 1 && gameObject.transform.position.x != -10)
                 {
                     Instantiate(attackActionAreaIndicator, guardPosition + longIndicatorBackwardOffset, Quaternion.Euler(0, 180, 0));
 
