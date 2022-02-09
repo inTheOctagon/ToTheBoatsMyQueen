@@ -7,17 +7,30 @@ using Cinemachine;
 public class Level1SetupManager : MonoBehaviour
 {
     [Header("SETUP VARIABLES")]
-    
+
+
+    [SerializeField] Level1GameplayManager gameplayManager;
+
     public bool setupOne = true;
     public bool setupTwo = true;
-    public float waveOneEnemyNumber = 3;
+    public float enemyNumber = 9;
 
     [SerializeField] GameObject doorRObject;
     [SerializeField] GameObject doorLObject;
     private bool doorOpened = false;
 
-    [SerializeField] GameObject boardGuard;
+    [SerializeField] GameObject boardGuardObject;
     [SerializeField] BoardGuard boardScript;
+
+    [SerializeField] GameObject queenObject;
+    private Vector3 queenTarget = new Vector3(-17,2,-19);
+
+    [Header("Capturing Variables")]
+    [SerializeField] GameObject gateCam;
+    [SerializeField] Vector3 dollyTargetPos = new Vector3(30, 4.5f, 0);
+    [SerializeField] float dollySpeed;
+    [SerializeField] GameObject gameCam;
+    [SerializeField] GameObject queenCam;
 
     [Header("Wave One Variables")]
     [SerializeField] GameObject enemyOneObject;
@@ -60,22 +73,14 @@ public class Level1SetupManager : MonoBehaviour
     [SerializeField] Vector3 enemySevenBoardPos;
     [SerializeField] Vector3 enemyEightBoardPos;
 
+    [SerializeField] GameObject tutorialPanelThree;
+
     private bool tutorialFourthStep;
     private bool tutorialFifthStep;
 
-
-    [Header("Capturing Variables")]
-    [SerializeField] GameObject gateCam;
-    [SerializeField] Vector3 dollyTargetPos = new Vector3(30, 4.5f, 0);
-    [SerializeField] float dollySpeed;
-    [SerializeField] GameObject gameCam;
-    
-    [SerializeField] Level1GameplayManager gameplayManager; 
-
-
     private void Start()
     {
-        boardScript = boardGuard.GetComponent<BoardGuard>();
+        boardScript = boardGuardObject.GetComponent<BoardGuard>();
 
         enemyOneBoardPos = new Vector3(6, 2, 6);
         enemyTwoBoardPos = new Vector3(10, 2, 2);
@@ -189,16 +194,17 @@ public class Level1SetupManager : MonoBehaviour
 
             if (enemyFiveObject.transform.position.x == enemyFiveBoardPos.x && tutorialFourthStep)
             {
-                
-                //panel çýkar 
+                tutorialPanelThree.SetActive(true);
+
                 tutorialFourthStep = false;
                 tutorialFifthStep = true;
                 
             }
             else if(Input.anyKeyDown && tutorialFifthStep)
             {
-                //paneli kapat ve
-                gameplayManager.enemyTurn = true;
+                tutorialPanelThree.SetActive(false);
+
+                gameplayManager.friendlyTurn = false;
                 setupTwo = true;
                 gameplayManager.enemyTurn = true;
             }
@@ -211,8 +217,8 @@ public class Level1SetupManager : MonoBehaviour
 
     public void CheckForSetupTwo()
     {
-        waveOneEnemyNumber--;
-        if (waveOneEnemyNumber == 0)
+        enemyNumber--;
+        if (enemyNumber == 6)
         {
             gameplayManager.friendlyTurn = false;
 
@@ -234,6 +240,16 @@ public class Level1SetupManager : MonoBehaviour
             tutorialFourthStep = true;
 
             Debug.Log("wave 2 baby");
+        }
+        else if(enemyNumber == 0)
+        {
+            gameplayManager.friendlyTurn = false;
+
+            queenCam.GetComponent<CinemachineVirtualCamera>().Priority = 12;
+
+            queenObject.GetComponent<NavMeshAgent>().SetDestination(queenTarget);
+
+            
         }
 
     }

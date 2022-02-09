@@ -350,7 +350,7 @@ public class BoardGuard : MonoBehaviour
 
         setupManager.CheckForSetupTwo();
 
-        if(setupManager.waveOneEnemyNumber != 0) gameplayManager.friendlyTurn = true;
+        if(setupManager.enemyNumber != 0 || setupManager.enemyNumber !=6) gameplayManager.friendlyTurn = true; 
 
 
 
