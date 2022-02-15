@@ -16,42 +16,36 @@ public class CorridorGuard : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Horizontal") && ready)
+        if(Input.GetButtonDown("Horizontal"))
         {
-            var inputValue = Input.GetAxisRaw("Horizontal");
-            var horizontalPos = transform.position.x;
-
-            ready = false;
-
-            StartCoroutine(MoveObject(inputValue, horizontalPos));
-
+            if(ready) StartCoroutine(ChangeLane());
         }
 
     }
    
-    IEnumerator MoveObject(float inputValue, float horizontalPos)
+    IEnumerator ChangeLane()
     {
-        
-        
-        float startTime = Time.time;
+        ready = false;
 
+        var inputValue = Input.GetAxisRaw("Horizontal");
         Vector3 startPos = transform.position;
-            
-        float targetPosX = Mathf.Clamp(startPos.x + (moveRange * inputValue), -5, 5);
-
-        Vector3 targetPos = new Vector3(targetPosX, startPos.y, startPos.z);
+        float targetPosX = startPos.x + moveRange * inputValue;
+        Vector3 targetPos = new Vector3(targetPosX, startPos.y, startPos.z);  
         
-        if(targetPosX == -5 || targetPosX == 0 || targetPosX == 5)
+        if(targetPosX >= -moveRange && targetPosX <= moveRange)
+
+        {
+            float startTime = Time.time;
+
             while (Time.time < startTime + moveTime)
             {
                 transform.position = Vector3.Lerp(startPos, targetPos, (Time.time - startTime) / moveTime);
                 yield return null;
             }
             transform.position = targetPos;
+        }
 
         ready = true;
-        
     }
-     
 
 }
